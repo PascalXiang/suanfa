@@ -1,6 +1,4 @@
-package org.example.xianxingchazhao;
-
-import java.util.Scanner;
+package org.example.chazhao.xianxing;
 
 /**
  * Created by Pascal on 2024/9/26.

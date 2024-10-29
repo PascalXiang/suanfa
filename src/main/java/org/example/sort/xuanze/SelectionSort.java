@@ -1,6 +1,6 @@
-package org.example.xuanzepaixu;
+package org.example.sort.xuanze;
 
-import org.example.xianxingchazhao.Student;
+import org.example.chazhao.xianxing.Student;
 
 /**
  * Created by Pascal on 2024/10/7.
@@ -17,8 +17,8 @@ public class SelectionSort {
                 if (arr[j].compareTo(arr[minIndex]) < 0) {
                     minIndex = j;
                 }
-                swap(arr,i,minIndex);
             }
+            swap(arr,i,minIndex);
         }
     }
 
