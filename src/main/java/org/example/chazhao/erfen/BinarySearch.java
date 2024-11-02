@@ -53,15 +53,85 @@ public class BinarySearch {
             int temp = (i + j) >>> 1;
             if (target < arr[temp]) {
                 j = temp;
-            }else {
+            } else {
                 i = temp;
             }
         }
         if (arr[i] == target) {
             return i;
-        }else {
+        } else {
             return -1;
         }
+    }
+
+    // 找重复元素中最左侧的元素
+    public static int binarySearchLeftMost1(int[] arr, int target) {
+        int i = 0;
+        int j = arr.length - 1;
+        int candidate = -1;
+        while (i <= j) {
+            int temp = (i + j) >>> 1;
+            if (arr[temp] > target) {
+                j = temp - 1;
+            } else if (arr[temp] < target) {
+                i = temp + 1;
+            } else {
+                // 记录候选位置
+                candidate = temp;
+                j = temp - 1;
+            }
+        }
+        return candidate;
+    }
+
+    // 找重复元素中最右侧的元素
+    public static int binarySearchRightMost1(int[] arr, int target) {
+        int i = 0;
+        int j = arr.length - 1;
+        int candidate = -1;
+        while (i <= j) {
+            int temp = (i + j) >>> 1;
+            if (arr[temp] > target) {
+                j = temp - 1;
+            } else if (arr[temp] < target) {
+                i = temp + 1;
+            } else {
+                // 记录候选位置
+                candidate = temp;
+                i = temp + 1;
+            }
+        }
+        return candidate;
+    }
+
+    // 返回大于等于目标值的最靠左索引
+    public static int binarySearchLeftMost2(int[] arr, int target) {
+        int i = 0;
+        int j = arr.length;
+        while (i <= j) {
+            int temp = (i + j) >>> 1;
+            if (arr[temp] >= target) {
+                j = temp - 1;
+            } else if (arr[temp] < target) {
+                i = temp + 1;
+            }
+        }
+        return i;
+    }
+
+    // 返回小于等于目标值的最靠右索引
+    public static int binarySearchRightMost2(int[] arr, int target) {
+        int i = 0;
+        int j = arr.length;
+        while (i <= j) {
+            int temp = (i + j) >>> 1;
+            if (arr[temp] > target) {
+                j = temp - 1;
+            } else {
+                i = temp + 1;
+            }
+        }
+        return i - 1;
     }
 
     public static void main(String[] args) {
